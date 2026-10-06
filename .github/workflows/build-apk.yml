@@ -18,6 +18,11 @@ jobs:
         run: |
           mkdir project
           unzip -q Starters_Cayetana_Android_Project.zip -d project
+          
+      - name: Corregir MainActivity
+        run: |
+          tail -n +2 project/app/src/main/java/com/cayetana/starters/MainActivity.java > /tmp/MainActivity.java
+          mv /tmp/MainActivity.java project/app/src/main/java/com/cayetana/starters/MainActivity.java
 
       - name: Instalar Java 17
         uses: actions/setup-java@v5
